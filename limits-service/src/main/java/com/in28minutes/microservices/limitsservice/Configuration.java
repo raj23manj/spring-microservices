@@ -4,6 +4,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
+// this will map to the configuration server limits-service properties
 @ConfigurationProperties("limits-service")
 public class Configuration {
 	
