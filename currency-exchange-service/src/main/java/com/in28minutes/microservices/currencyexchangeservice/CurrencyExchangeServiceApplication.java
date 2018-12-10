@@ -1,12 +1,16 @@
 package com.in28minutes.microservices.currencyexchangeservice;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 
 import brave.sampler.Sampler;
 
+
+@EnableAutoConfiguration(exclude=RabbitAutoConfiguration.class)
 @SpringBootApplication
 @EnableDiscoveryClient
 public class CurrencyExchangeServiceApplication {
