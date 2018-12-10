@@ -7,9 +7,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 // we can call only one instance running on this port, if there are multiple one ? we use ribbon
 //@FeignClient(name="currency-exchange-service", url="localhost:8000")
-@FeignClient(name="currency-exchange-service") // name is the name given in application.properties
+//@FeignClient(name="currency-exchange-service") // name is the name given in application.properties
+@FeignClient(name="netflix-zuul-api-gateway-server") // feign will interact with the zuul server and get the api from naming server
 @RibbonClient(name="currency-exchange-service")
 public interface CurrencyExchangeServiceProxy {
-	@GetMapping("/currency-exchange/from/{from}/to/{to}")
+	//@GetMapping("/currency-exchange/from/{from}/to/{to}")
+	@GetMapping("/currency-exchange-service/currency-exchange/from/{from}/to/{to}")
 	public CurrencyConversionBean retrieveExchangeValue(@PathVariable("from") String from, @PathVariable("to") String to);
 }
